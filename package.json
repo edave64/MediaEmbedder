@@ -1,0 +1,26 @@
+{
+    "author": {
+        "name": "nordern",
+        "url": "https://github.com/edave64"
+    },
+    "name": "media-embed",
+    "version": "0.1.0",
+    "homepage": "https://github.com/edave64/MediaEmbed",
+    "license": "MIT",
+
+    "dependencies": {
+        "xmldom": "^0.1.27"
+    },
+    "devDependencies": {
+        "browserify": "^14.4.0",
+        "browserify-global-shim": "^1.0.3",
+        "eslint": "^4.9.0"
+    },
+
+    "eslintConfig": {
+        "env": {
+            "node": true,
+            "es6": true
+        }
+    }
+}
