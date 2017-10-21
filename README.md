@@ -1,6 +1,6 @@
-# MediaEmbed
+# MediaEmbedder
 
-MediaEmbed is a javascript library for parsing and creating links and embedding codes for media hosting services. While parsing, it also supports outdated embedding codes, so it can be used to get rid of flash-player embeds.
+MediaEmbedder is a javascript library for parsing and creating links and embedding codes for media hosting services. While parsing, it also supports outdated embedding codes, so it can be used to get rid of flash-player embeds.
 
 Currently, these services are supported:
 
@@ -11,9 +11,9 @@ Currently, these services are supported:
 ## Example
 
 ```javascript
-const MediaEmbed = require('./index');
+const MediaEmbedder = require('media-embedder');
 
-const mediaData = MediaEmbed.detect(`
+const mediaData = MediaEmbedder.detect(`
     <object height="344" width="425">
         <param name="movie" value="http://www.youtube.com/v/DLzxrzFCyOs&hl=pl&fs=1&color1=0xcc2550&color2=0xe87a9f">
         <param name="allowFullScreen" value="true">
@@ -39,11 +39,11 @@ Returns this object:
 From that you can generate a new embed code:
 
 ```javascript
-MediaEmbed.buildIframe(mediaData); //=> '<iframe height="344" width="425" allowfullscreen webkitallowfullscreen mozallowfullscreen frameborder="0" src="https://www.youtube.com/embed/DLzxrzFCyOs"></iframe>'
+MediaEmbedder.buildIframe(mediaData); //=> '<iframe height="344" width="425" allowfullscreen webkitallowfullscreen mozallowfullscreen frameborder="0" src="https://www.youtube.com/embed/DLzxrzFCyOs"></iframe>'
 ```
 
 Or a direct link URL:
 
 ```javascript
-MediaEmbed.buildLink(mediaData); //=> 'https://www.youtube.com/watch?v=DLzxrzFCyOs'
+MediaEmbedder.buildLink(mediaData); //=> 'https://www.youtube.com/watch?v=DLzxrzFCyOs'
 ```

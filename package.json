@@ -3,9 +3,9 @@
         "name": "nordern",
         "url": "https://github.com/edave64"
     },
-    "name": "media-embed",
+    "name": "media-embedder",
     "version": "0.1.0",
-    "homepage": "https://github.com/edave64/MediaEmbed",
+    "homepage": "https://github.com/edave64/MediaEmbedder",
     "license": "MIT",
 
     "dependencies": {
