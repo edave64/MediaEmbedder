@@ -45,6 +45,7 @@
 
 /** @type {Object.<string, MediaPlatform>} */
 const platforms = {
+    youtube: require("./platforms/youtube"),
 };
 
 /** @type {MediaPlatform} */
