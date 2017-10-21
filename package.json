@@ -17,6 +17,18 @@
         "eslint": "^4.9.0"
     },
 
+    "browserify": {
+        "transform": [
+            "browserify-global-shim"
+        ]
+    },
+    "browser": {
+        "url": "./browser/url_browser_mini.js"
+    },
+    "browserify-global-shim": {
+        "xmldom": "window"
+    },
+
     "eslintConfig": {
         "env": {
             "node": true,
