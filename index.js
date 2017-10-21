@@ -46,6 +46,7 @@
 /** @type {Object.<string, MediaPlatform>} */
 const platforms = {
     youtube: require("./platforms/youtube"),
+    dailymotion: require("./platforms/dailymotion"),
 };
 
 /** @type {MediaPlatform} */
