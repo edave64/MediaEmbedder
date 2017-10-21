@@ -47,6 +47,7 @@
 const platforms = {
     youtube: require("./platforms/youtube"),
     dailymotion: require("./platforms/dailymotion"),
+    vimeo: require("./platforms/vimeo")
 };
 
 /** @type {MediaPlatform} */
