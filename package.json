@@ -7,6 +7,7 @@
     "version": "0.1.0",
     "homepage": "https://github.com/edave64/MediaEmbedder",
     "license": "MIT",
+    "description": "Parses and creates links and embedding codes for media hosting services",
 
     "dependencies": {
         "xmldom": "^0.1.27"
