@@ -1,3 +1,4 @@
+"use strict";
 const urlParse = /^\/(embed\/video|video|swf)\/([0-9a-zA-Z]*)/
 
 module.exports = require("../platform_base")(
@@ -19,8 +20,7 @@ module.exports = require("../platform_base")(
     },
     function (data, embed, query) {
         let url = embed ? "https://www.dailymotion.com/embed/video/" : "https://www.dailymotion.com/video/";
-        const mediaid = data.mediaid.replace(/[^0-9a-zA-Z]/g, ""); // sanitize mediaid
-        url += mediaid;
+        url += data.mediaid.replace(/[^0-9a-zA-Z]/g, ""); // sanitize mediaid
     
         query.when(data.allowFullscreen === false, "fullscreen=1");
         query.when(data.autoplay                 , "autoplay=1");

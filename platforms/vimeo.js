@@ -1,5 +1,5 @@
-const querystring = require("querystring");
-const urlParse = /^\/(video\/)?([0-9]*)$/
+"use strict";
+const urlParse = /^\/(video\/)?([0-9]*)$/;
 
 /**
  * @param {string} videoId 
@@ -26,8 +26,6 @@ module.exports = require("../platform_base")(
             if (urlMatch) {
                 return generate(urlMatch[2], qs);
             }
-    
-            return;
         }
     },
     function (data, embed, query) {

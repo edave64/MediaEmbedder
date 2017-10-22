@@ -1,16 +1,18 @@
+"use strict";
+
 const querystring = require("querystring");
 const UrlHelper = require("./utils/url_helper");
 const DocHelper = require("./utils/doc_helper");
 
 /**
- * @callback PlatformBase~processor
+ * @callback processor
  * @param {UrlObject} url
  * @param {Object} queryObject
  * @return {MediaInfo}
  */
 
 /**
- * @callback PlatformBase~generator
+ * @callback generator
  * @param {MediaInfo} mediaInfo
  * @param {boolean} embedded
  * @param {string[]} queryParts
@@ -18,8 +20,8 @@ const DocHelper = require("./utils/doc_helper");
  */
 
 /**
- * @param {PlatformBase~processor} urlProcessor
- * @param {PlatformBase~generator} urlGenerator
+ * @param {processor} urlProcessor
+ * @param {generator} urlGenerator
  * @returns {MediaPlatform}
  */
 module.exports = function (urlProcessor, urlGenerator) {
@@ -36,7 +38,7 @@ module.exports = function (urlProcessor, urlGenerator) {
 
     function wrappedGenerator (data, embed) {
         const queryData = [];
-        queryData.when = function (condition, val) { if (condition) this.push(val); }
+        queryData.when = function (condition, val) { if (condition) this.push(val); };
         let url = urlGenerator(data, embed, queryData);
         
         if (queryData.length > 0) {
@@ -48,7 +50,8 @@ module.exports = function (urlProcessor, urlGenerator) {
     return {
         detect: (text) => {
             // is entire text a url?
-            let entire = wrappedProcessor(text);
+            let entire = wrappedProcessor(text),
+                ret;
             if (entire) {
                 return entire;
             }
@@ -78,4 +81,4 @@ module.exports = function (urlProcessor, urlGenerator) {
             return wrappedGenerator(data, false);
         }
     };
-}
+};

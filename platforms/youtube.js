@@ -1,6 +1,12 @@
+"use strict";
 const querystring = require("querystring");
-const embedUrlParse = /^\/(embed|v)\/([0-9a-zA-Z\-_]*)(.*)/
+const embedUrlParse = /^\/(embed|v)\/([0-9a-zA-Z\-_]*)(.*)/;
 
+/**
+ * @param {string} videoId
+ * @param {object} param
+ * @returns {MediaInfo}
+ */
 function generate (videoId, param) {
     return {
         mediaid: videoId,

@@ -4,7 +4,7 @@
         "url": "https://github.com/edave64"
     },
     "name": "media-embedder",
-    "version": "0.2.1",
+    "version": "0.2.2",
     "homepage": "https://github.com/edave64/MediaEmbedder",
     "license": "MIT",
     "description": "Parses and creates links and embedding codes for media hosting services",

@@ -1,14 +1,16 @@
+"use strict";
+
 /**
  * @typedef MediaInfo
  * @name MediaInfo
  * @type {object}
  * @property {string} platform - The name of the media platfrom.
  * @property {string} mediaid - A string uniquely identifying on piece of media on the platform
- * @property {number?} height - The height of the embeded player
- * @property {number?} width - The width of the embeded player
- * @property {boolean?} allowFullscreen - True if the player can enter fullscreen
- * @property {boolean?} loop - True if the player will start over at the end
- * @property {number?} timestamp - The number of seconds at the begining that will be skiped
+ * @property {number} [height] - The height of the embeded player
+ * @property {number} [width] - The width of the embeded player
+ * @property {boolean} [allowFullscreen] - True if the player can enter fullscreen
+ * @property {boolean} [loop] - True if the player will start over at the end
+ * @property {number} [timestamp] - The number of seconds at the begining that will be skiped
  */
 
 /**
@@ -24,7 +26,7 @@
  * 
  * @method MediaPlatform~detect
  * @param {string} test - A URL or an html snipplet containing an embed code
- * @returns {MediaInfo?} Information found in the string, undefined if none where found.
+ * @returns {MediaInfo|undefined} Information found in the string, undefined if none where found.
  */
 
 /**
@@ -62,11 +64,11 @@ module.exports = {
         }
     },
     buildIframe: function (descriptor) {
-        var platform = platforms[descriptor.platform];
+        const platform = platforms[descriptor.platform];
         return platform.buildIframe(descriptor);
     },
     buildLink: function (descriptor) {
-        var platform = platforms[descriptor.platform];
+        const platform = platforms[descriptor.platform];
         return platform.buildLink(descriptor);
     }
-}
+};
