@@ -17,7 +17,7 @@ module.exports = require("../platform_base")(
             }
         }
     },
-    function (data, query) {
+    function (data, embed, query) {
         let url = embed ? "https://www.dailymotion.com/embed/video/" : "https://www.dailymotion.com/video/";
         const mediaid = data.mediaid.replace(/[^0-9a-zA-Z]/g, ""); // sanitize mediaid
         url += mediaid;

@@ -29,14 +29,16 @@ module.exports = require("../platform_base")(
             return generate(urlData.pathname.slice(1), qs);
         }
     },
-    function (data, query) {
+    function (data, embed, query) {
         let url = embed ? "https://www.youtube.com/embed/" : "https://www.youtube.com/watch";
         const mediaid = data.mediaid.replace(/[^0-9a-zA-Z\-_]/g, ""); // sanitize mediaid
     
         query.when(data.allowFullscreen === false, "fs=1");
         query.when(data.loop,                      "loop=1");
         query.when(data.autoplay,                  "autoplay=1");
-        query.when(data.timestamp,                 "start=" + data.timestamp.replace(/[^0-9hms]/g, ""));
+        if (data.timestamp) {
+            query.push("start=" + data.timestamp.replace(/[^0-9hms]/g, ""));
+        }
 
         if (embed) {
             url += mediaid;

@@ -37,10 +37,10 @@ module.exports = function (urlProcessor, urlGenerator) {
     function wrappedGenerator (data, embed) {
         const queryData = [];
         queryData.when = function (condition, val) { if (condition) this.push(val); }
-        const url = urlGenerator(data, embed, query);
+        let url = urlGenerator(data, embed, queryData);
         
-        if (query.length > 0) {
-            url += "?" + query.join("&");
+        if (queryData.length > 0) {
+            url += "?" + queryData.join("&");
         }
         return url;
     }

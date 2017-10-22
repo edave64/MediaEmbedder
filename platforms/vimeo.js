@@ -30,7 +30,7 @@ module.exports = require("../platform_base")(
             return;
         }
     },
-    function (data, query) {
+    function (data, embed, query) {
         let url = embed ? "https://player.vimeo.com/video/" : "https://vimeo.com/";
         url += data.mediaid.replace(/[^0-9]/g, ""); // sanitize mediaid
     
