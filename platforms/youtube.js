@@ -2,8 +2,7 @@ const querystring = require("querystring");
 const UrlHelper = require("../utils/url_helper");
 const DocHelper = require("../utils/doc_helper");
 
-const embedUrlParse = /^\/embed\/([0-9a-zA-Z\-_]*)/
-const vUrlParse = /^\/v\/([0-9a-zA-Z\-_]*)(.*)/
+const embedUrlParse = /^\/(embed|v)\/([0-9a-zA-Z\-_]*)(.*)/
 
 function generate (videoId, param) {
     return {
@@ -24,16 +23,11 @@ function processYoutubeUrl(text) {
         if (qs.v) {
             return generate(qs.v, qs);
         }
-        console.log(urlData.pathname);
         const embedUrlMatch = urlData.pathname.match(embedUrlParse);
         if (embedUrlMatch) {
-            return generate(embedUrlMatch[1], qs);
-        }
-        const vUrlMatch = urlData.pathname.match(vUrlParse);
-        if (vUrlMatch) {
             // youtube /v/ urls can be kind of odd and and append the query with & to the path
-            const vUrlQs = querystring.parse(vUrlMatch[2]);
-            return generate(vUrlMatch[1], Object.assign({}, qs, vUrlQs));
+            const vUrlQs = querystring.parse(embedUrlMatch[3]);
+            return generate(embedUrlMatch[2], Object.assign({}, qs, vUrlQs));
         }
 
         return;
