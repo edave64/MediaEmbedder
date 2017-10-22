@@ -15,7 +15,8 @@
     "devDependencies": {
         "browserify": "^14.4.0",
         "browserify-global-shim": "^1.0.3",
-        "eslint": "^4.9.0"
+        "eslint": "^4.9.0",
+        "jest": "^21.2.1"
     },
 
     "browserify": {
@@ -35,5 +36,9 @@
             "node": true,
             "es6": true
         }
-    }
+    },
+
+    "scripts": {
+        "test": "jest"
+    }      
 }
