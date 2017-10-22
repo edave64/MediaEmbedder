@@ -13,7 +13,7 @@ function generate (videoId, param) {
     return {
         mediaid: videoId,
         height: null, width: null, timestamp: null,
-        allowFullscreen: param.fullscreen === "1",
+        allowFullscreen: null,
         loop: param.loop === "1",
         autoplay: param.autoplay === "1"
     }
@@ -51,7 +51,6 @@ function buildUrl (data, embed) {
 
     let query = [];
 
-    if (data.allowFullscreen === false) { query.push("fullscreen=1") }
     if (data.loop                     ) { query.push("loop=1");      }
     if (data.autoplay                 ) { query.push("autoplay=1");  }
     
