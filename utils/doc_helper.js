@@ -2,7 +2,7 @@ const DOMParser = require("xmldom").DOMParser;
 
 module.exports = {
     get_nodes: function (text, ...node_types) {
-        let parser = (new DOMParser ()).parseFromString("<html><body>" + text + "</body></html>", "text/html");
+        let parser = (new DOMParser ({errorHandler:{warning:function(){}}})).parseFromString("<html><body>" + text + "</body></html>", "text/html");
         var tags = [];
         for (const node_type of node_types) {
             tags.push.apply(tags, parser.getElementsByTagName(node_type));
